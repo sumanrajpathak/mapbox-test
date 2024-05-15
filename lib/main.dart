@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
+import 'package:mapbox_test/route.dart';
 
 String accessToken = '';
 Future main() async {
@@ -52,7 +53,7 @@ class MapScreenState extends State<MapScreen> {
         onMapCreated: _onMapCreated,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: _createNaviagtion,
         child: const Icon(Icons.directions),
       ),
     );
@@ -62,5 +63,8 @@ class MapScreenState extends State<MapScreen> {
     this.mapboxMap = mapboxMap;
   }
 
- 
+  _createNaviagtion() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const AnimatedRoute()));
+  }
 }
